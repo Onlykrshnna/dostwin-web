@@ -1,0 +1,434 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+:root {
+    --bg-light: #f8fafc;
+    --bg-white: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.9);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --accent-blue: #3b82f6;
+    --accent-gold: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+    --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.3s ease;
+    --nav-height: 80px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--nav-height);
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    line-height: 1.7;
+    color: var(--text-primary);
+    background: #f8fafc;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* --- Fixed Navbar --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--nav-height);
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    align-items: center;
+}
+
+.nav-brand .logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+    letter-spacing: -0.03em;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition-fast);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--accent-blue);
+}
+
+.nav-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-cta {
+    padding: 10px 25px;
+    background: var(--accent-gold);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    box-shadow: 0 10px 15px -3px rgba(245, 158, 11, 0.3);
+}
+
+/* --- Header & Hero --- */
+header {
+    text-align: center;
+    padding: 120px 0 40px;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+}
+
+.auth-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.hero-area {
+    margin: 0 auto 60px;
+    max-width: 800px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.hero-banner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-banner img {
+    width: 100%;
+    border-radius: 30px;
+    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.1);
+    border: 10px solid #fff;
+    max-height: 380px;
+    /* Reduced further */
+    object-fit: contain;
+    object-position: top;
+}
+
+/* --- Trust Section --- */
+.trust-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: #fff;
+    padding: 25px;
+    border-radius: 20px;
+    margin-bottom: 60px;
+    box-shadow: var(--card-shadow);
+    text-align: center;
+}
+
+.trust-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.trust-val {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--accent-blue);
+}
+
+.trust-lbl {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+/* --- Section Layouts --- */
+section {
+    background: #fff;
+    border-radius: 40px;
+    padding: 60px;
+    margin-bottom: 40px;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition-slow);
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.side-layout {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.side-layout .section-content {
+    flex: 1.2;
+}
+
+.side-layout .section-media {
+    flex: 0.8;
+    display: flex;
+    justify-content: center;
+}
+
+.side-layout.reverse {
+    flex-direction: row-reverse;
+}
+
+h2 {
+    font-size: 2.3rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    letter-spacing: -0.02em;
+}
+
+p {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+/* --- Phone Mockup Frame (Aggressive Height Control) --- */
+.phone-mockup {
+    width: 280px;
+    height: 480px;
+    /* Strong cap on height */
+    background: #0f172a;
+    border: 8px solid #0f172a;
+    border-radius: 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.2);
+}
+
+/* Notch effect */
+.phone-mockup::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 25px;
+    background: #0f172a;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    z-index: 10;
+}
+
+/* Fade out at bottom to show it's a peek */
+.phone-mockup::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(0deg, rgba(15, 23, 42, 0.4) 0%, transparent 100%);
+    z-index: 5;
+    pointer-events: none;
+}
+
+.phone-mockup img {
+    width: 100%;
+    height: 77%;
+    object-fit: cover;
+    background: #000;
+    display: block;
+    transform: scale(1.5);
+    transform-origin: top;
+}
+
+/* --- Components --- */
+.btn {
+    display: inline-block;
+    padding: 14px 35px;
+    background: var(--accent-gold);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 50px;
+    transition: var(--transition-fast);
+}
+
+.btn-secondary {
+    background: #fff;
+    border: 2px solid var(--accent-blue);
+    color: var(--accent-blue);
+}
+
+.fancy-list li {
+    background: #f8fafc;
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #e2e8f0;
+    list-style: none;
+    font-size: 1rem;
+}
+
+.table-container {
+    border: 1px solid #e2e8f0;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+/* --- FAQ --- */
+.faq-item {
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 15px 20px;
+    font-weight: 700;
+    cursor: pointer;
+    background: #fff;
+}
+
+.faq-answer {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    padding: 15px 20px;
+    max-height: 200px;
+    border-top: 1px solid #f1f5f9;
+}
+
+/* --- Footer --- */
+footer {
+    background: #0f172a;
+    color: #94a3b8;
+    padding: 80px 0 40px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr 1fr;
+    gap: 40px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- Responsive --- */
+@media (max-width: 992px) {
+
+    .side-layout,
+    .side-layout.reverse {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .phone-mockup {
+        width: 260px;
+        height: 420px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+
+    .trust-bar {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    section {
+        padding: 40px 20px;
+    }
+}
